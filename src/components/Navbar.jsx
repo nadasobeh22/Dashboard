@@ -7,7 +7,6 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext } from '../contexts/ContextProvider';
 
-// ✅ تحميل المكونات بشكل ديناميكي لتجنب دورة الاستيراد
 const Cart = lazy(() => import('./Cart'));
 const Chat = lazy(() => import('./Chat'));
 const Notification = lazy(() => import('./Notification'));
@@ -60,7 +59,7 @@ const Navbar = () => {
           <div
             className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
             onClick={() => handleClick('userProfile')}
-          >         
+          >
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{' '}
               <span className="text-gray-400 font-bold ml-1 text-14">Nada Sobeh</span>
@@ -69,7 +68,6 @@ const Navbar = () => {
           </div>
         </TooltipComponent>
 
-        {/* ✅ استخدام Suspense لتأخير تحميل المكونات */}
         <Suspense fallback={<div>Loading...</div>}>
           {isClicked.cart && <Cart />}
           {isClicked.chat && <Chat />}
